@@ -7,7 +7,7 @@ config global
 	option run_mode 'router'
 	option dports '2'
 	option pdnsd_enable '1'
-	option tunnel_forward '8.8.4.4:53'
+	option tunnel_forward '8.8.8.8:53'
 	option monitor_enable '1'
 	option enable_switch '1'
 	option switch_time '667'
@@ -35,7 +35,7 @@ config server_subscribe
 	option filter_words '过期时间/剩余流量/QQ群/官网/防失联地址/回国'
 
 config socks5_proxy
-	option socks '0'
+	option socks '1'
 	option local_port '1080'
 
 config server_global
