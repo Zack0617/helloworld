@@ -40,6 +40,8 @@ o = s:option(ListValue, "udp_relay_server", translate("Game Mode UDP Server"))
 o:value("", translate("Disable"))
 o:value("same", translate("Same as Global Server"))
 for _,key in pairs(key_table) do o:value(key,server_table[key]) end
+o.default = "same"
+o.rmempty = false
 
 o = s:option(ListValue, "netflix_server", translate("Netflix Node"))
 o:value("nil", translate("Disable"))
@@ -71,7 +73,7 @@ o:value("gfw", translate("GFW List Mode"))
 o:value("router", translate("IP Route Mode"))
 o:value("all", translate("Global Mode"))
 o:value("oversea", translate("Oversea Mode"))
-o.default = gfw
+o.default = router
 
 o = s:option(ListValue, "dports", translate("Proxy Ports"))
 o:value("1", translate("All Ports"))
@@ -85,8 +87,8 @@ o:value("0", translate("Use Local DNS Service listen port 5335"))
 o.default = 1
 
 o = s:option(Value, "tunnel_forward", translate("Anti-pollution DNS Server"))
-o:value("8.8.4.4:53", translate("Google Public DNS (8.8.4.4)"))
 o:value("8.8.8.8:53", translate("Google Public DNS (8.8.8.8)"))
+o:value("8.8.4.4:53", translate("Google Public DNS (8.8.4.4)"))
 o:value("208.67.222.222:53", translate("OpenDNS (208.67.222.222)"))
 o:value("208.67.220.220:53", translate("OpenDNS (208.67.220.220)"))
 o:value("209.244.0.3:53", translate("Level 3 Public DNS (209.244.0.3)"))
@@ -100,7 +102,7 @@ o:value("114.114.114.114:53", translate("Oversea Mode DNS-1 (114.114.114.114)"))
 o:value("114.114.115.115:53", translate("Oversea Mode DNS-2 (114.114.115.115)"))
 o:depends("pdnsd_enable", "1")
 o:depends("pdnsd_enable", "2")
-o.description = translate("Custom DNS Server format as IP:PORT (default: 8.8.4.4:53)")
+o.description = translate("Custom DNS Server format as IP:PORT (default: 8.8.8.8:53)")
 
 return m
 
